@@ -1,0 +1,50 @@
+<h2 style="text-align: center;">Add Game</h2>
+
+<form (ngSubmit)="submitAddGame()" [formGroup]="addGameForm" style="text-align: center;">
+  <mat-form-field>
+    <input matInput placeholder="title" formControlName="title" required>
+  </mat-form-field>
+  <br>
+    <input type="file" formControlName="img" required>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="year" formControlName='year' maxLength='4' required>
+  </mat-form-field>
+  <br>
+  <mat-form-field> 
+    <select  matNativeControl placeholder="platform" formControlName="platform" required> 
+      <optgroup label="Atari">
+        <option value="Atari 2600">Atari 2600</option>
+        <option value="Atari 7800">Atari 7800</option>
+        <option value="Jaguar">Jaguar</option>
+      </optgroup>
+      <optgroup label = "Nintendo">
+        <option value = "Nes" >Nes</option > 
+        <option value = "Super Nintendo" >Super Nintendo</option >
+        <option value = "Nintendo 64" >Nintendo 64</option> 
+        <option value = "GameCube" >GameCube</option>
+        <option value = "Wii" >Wii</option>
+        <option value = "WiiU" >WiiU</option>
+      </optgroup > 
+      <optgroup label = "Sony"> 
+        <option value = "Playstation 1" >Playstation 1</option > 
+        <option value = "Playstation 2" >Playstation 2</option > 
+      </optgroup > 
+    </select > 
+  </mat-form-field >
+  <br>
+  <mat-form-field>
+    <select matNativeControl placeholder="Comment" formControlName="comment" required>
+      <option value="Excellent!">Excellent</option>
+      <option value="Very Good">Very Good</option>
+      <option value="Good">Good</option>
+      <option value="Fair">Fair</option>
+      <option value="Poor">Poor</option>
+      <option value="Very bad">Very Bad</option>
+    </select>
+  </mat-form-field>
+  <br>  
+      <mat-slider thumbLabel [displayWith]="addNote" tickInterval="1000" min="0" max="10" formControlName="note" required></mat-slider>
+  <br>
+  <button  type="submit" [disabled] = "!addGameForm.valid">Add</button>
+</form>

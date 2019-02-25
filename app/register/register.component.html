@@ -1,0 +1,35 @@
+<h2 style="text-align: center;">Register</h2>
+
+<form id="form-register" (ngSubmit)="newUserFormSubmit()" [formGroup]="newUserForm">
+    <mat-form-field>
+        <input matInput placeholder="Username" formControlName="username" required>
+    </mat-form-field>
+        <div *ngIf="newUserForm.controls.username.invalid && newUserForm.controls.username.touched">Username required</div>
+    <br>
+        <input type="file" formControlName="avatar" required>      
+    <br>
+    <mat-form-field>            
+        <input matInput placeholder="Email" formControlName="email" required>      
+    </mat-form-field>
+        <div *ngIf="newUserForm.controls.email.invalid && newUserForm.controls.email.touched">Invalid Email</div>
+    <br>
+    <div formGroupName ="password"> 
+        <mat-form-field>
+            <input matInput type="password" placeholder="Password" formControlName="pwd" minLength="10" required>
+        </mat-form-field>
+            <div *ngIf="newUserForm.controls.password.controls.pwd.invalid && newUserForm.controls.password.controls.pwd.touched">min length 10</div>
+        <br>
+        <mat-form-field>
+            <input matInput type="password" placeholder="Confirm Password" formControlName="confirmPwd" minLength="10" required>
+        </mat-form-field>
+        <div *ngIf="newUserForm.controls.password.controls.confirmPwd.invalid && newUserForm.controls.password.controls.confirmPwd.touched">No match</div>
+    </div>
+    <br>
+    <button  type="submit" [disabled] = "!newUserForm.valid">Register</button>
+</form>
+
+
+
+  
+
+  

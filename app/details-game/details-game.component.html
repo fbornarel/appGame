@@ -1,0 +1,9 @@
+<div *ngIf="game" style="text-align: center; margin-top: 2%;">
+    <div><img src="{{game.img}}" [alt]="game.title" /></div>
+    <h2>{{ game.title | uppercase }}</h2>
+    <div>Year: {{game.year}}</div>
+    <div>Platform: {{game.platform}}</div>
+    <div>Comment: {{game.comment}}</div>
+    <div>Note: {{game.note}}</div>    
+    <div>Add to {{user.username}}</div>
+</div>

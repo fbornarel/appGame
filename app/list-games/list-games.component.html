@@ -1,0 +1,12 @@
+<h2 style="text-align:center;">Games</h2>
+
+<ul>
+  <li *ngFor="let game of games">
+      <img src="{{game.img}}" style="width: 10%;"> 
+    <a  routerLink="/details-game/{{game.title}}">{{game.title}}</a> 
+    {{game.note}}
+    <i class = "material-icons" (click)="upVote()"> thumb_up</i>
+    <i class = "material-icons" (click)="downVote()"> thumb_down</i>
+  </li>
+</ul>
+
