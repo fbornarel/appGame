@@ -43,5 +43,6 @@ export class ListGamesComponent implements OnInit {
 
   essai(){
     //error commit vscode....
+    //Error
   }
 }
