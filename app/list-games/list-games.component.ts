@@ -40,8 +40,4 @@ export class ListGamesComponent implements OnInit {
     var upNote = note-0.1;
     console.log(upNote);
   }
-
-  essai(){
-    //error commit vscode....
-  }
 }
