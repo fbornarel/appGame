@@ -18,11 +18,10 @@ export class ListGamesComponent implements OnInit {
 
   ngOnInit() {
     this.getGames();
-    this.games = this.gameService.games;
   }
 
   getGames(): void{
-    this.gameService.getGames()
+    this.gameService.games
     .subscribe(games => this.games = games);
   }
 
