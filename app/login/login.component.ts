@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
   }
 
   public loginUserFormSubmit(){
+    
     var loginValue = this.loginUserForm.value;
     var loginEmail = loginValue.email;
     var loginPwd = loginValue.password;
@@ -40,13 +41,9 @@ export class LoginComponent implements OnInit {
       
       if( loginEmail == email && loginPwd == pwd)
       {
-        var username = this.usersList[i]['username'];
-        let key = '';
-        localStorage.setItem(key, username);
-        let currentUsername = localStorage.getItem(key);
-        console.log(currentUsername);
-        //this.router.navigate(['/games']);
-        return currentUsername;
+        var username = this.usersList[i]['username'];  
+        this.router.navigate(['/games']);
+        
       }
       else
       {
