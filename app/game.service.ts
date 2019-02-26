@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of, BehaviorSubject } from 'rxjs';
 
 import { Game } from './Game';
 import { GAMESLIST } from './gamesList';
@@ -10,6 +10,8 @@ import { GAMESLIST } from './gamesList';
 
 export class GameService{
 
+    private gameSource = new BehaviorSubject(new Game);
+    game = this.gameSource.asObservable();
     public games = GAMESLIST;
    
     constructor() { }

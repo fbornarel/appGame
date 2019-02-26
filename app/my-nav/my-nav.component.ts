@@ -19,10 +19,7 @@ export class MyNavComponent {
 
   constructor(private breakpointObserver: BreakpointObserver) {}
 
-  getLogin() {
-    var essai = JSON.parse(localStorage.getItem('username'));
-    console.log(essai);
-  }
+  
 }
  
    
