@@ -14,7 +14,6 @@ import { USERSLIST } from '../usersList';
 export class RegisterComponent implements OnInit {
 
   public user : User;
-  public usersList = USERSLIST;
   public newUserForm : FormGroup;
 
   constructor(
