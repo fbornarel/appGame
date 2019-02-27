@@ -42,10 +42,8 @@ export class LoginComponent implements OnInit {
       
       
       if( loginEmail == email && loginPwd == pwd)
-      {
-        var username = this.usersList[i]['username'];  
-        this.router.navigate(['/games']);
-        
+      { 
+        this.router.navigate(['/games']);       
       }
       else
       {

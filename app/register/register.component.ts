@@ -47,7 +47,6 @@ export class RegisterComponent implements OnInit {
 
   public newUserFormSubmit(){   
     if(this.newUserForm.valid){
-      this.userService.usersValue = this.newUserForm.value;
       this.addNewUser();
       this.router.navigate(['/login']);
     }         
