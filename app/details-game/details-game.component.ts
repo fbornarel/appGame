@@ -10,8 +10,6 @@ import { GameService } from '../game.service';
   styleUrls: ['./details-game.component.css']
 })
 export class DetailsGameComponent implements OnInit {
-
-  games : Game[];
   
   @Input() game: Game;
 
@@ -22,7 +20,6 @@ export class DetailsGameComponent implements OnInit {
 
   ngOnInit(): void {
     this.getGame();
-    this.games = this.gameService.games;
   }
 
 
