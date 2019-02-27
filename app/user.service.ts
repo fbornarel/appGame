@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of, BehaviorSubject } from 'rxjs';
 
 import { User } from './User';
 import { USERSLIST } from './usersList';
@@ -10,20 +10,17 @@ import { USERSLIST } from './usersList';
 
 export class UserService{
 
-    public users = USERSLIST;
+    public users = new BehaviorSubject(USERSLIST);
+    public usersValue = this.users.getValue();
 
     constructor() { }
 
-    public getUsers(): Observable<User[]>{
-        return of(USERSLIST); 
+    public getUsers(){
+        return this.usersValue; 
     }
 
     public add(user:User){
-        this.users.push(user);
+        this.users.getValue().push(user);
     }
-
-    
-
-    
 
 }

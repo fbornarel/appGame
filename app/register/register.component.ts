@@ -3,8 +3,6 @@ import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/fo
 import { Router } from '@angular/router';
 
 import { UserService } from './../user.service';
-import { User } from './../User';
-import { USERSLIST } from '../usersList';
 
 @Component({
   selector: 'app-register',
@@ -13,7 +11,6 @@ import { USERSLIST } from '../usersList';
 })
 export class RegisterComponent implements OnInit {
 
-  public user : User;
   public newUserForm : FormGroup;
 
   constructor(
@@ -50,7 +47,7 @@ export class RegisterComponent implements OnInit {
 
   public newUserFormSubmit(){   
     if(this.newUserForm.valid){
-      this.user = this.newUserForm.value;
+      this.userService.usersValue = this.newUserForm.value;
       this.addNewUser();
       this.router.navigate(['/login']);
     }         

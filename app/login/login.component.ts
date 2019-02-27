@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/fo
 import { Router } from '@angular/router';
 
 import { USERSLIST } from './../usersList';
-import { invalid } from '@angular/compiler/src/render3/view/util';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-login',
@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
      private formBuilder: FormBuilder,
+     private userService : UserService,
      private router :Router,
      ) { }
 
@@ -25,6 +26,7 @@ export class LoginComponent implements OnInit {
       'email': ['', Validators.compose([Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')])],
       'password':['',[ Validators.minLength(10)]],    
     });
+    console.log(this.userService.usersValue.length);
   }
 
   public loginUserFormSubmit(){
