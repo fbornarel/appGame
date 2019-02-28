@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { GameService } from '../game.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-add-game',
@@ -11,6 +12,8 @@ import { GameService } from '../game.service';
 })
 export class AddGameComponent implements OnInit {
 
+  username = localStorage.getItem('username'); 
+  logUsername ={};
   public addGameForm : FormGroup;
 
   constructor(
@@ -20,6 +23,7 @@ export class AddGameComponent implements OnInit {
     ) { }
 
   ngOnInit() {
+     
     this.addGameForm = this.formBuilder.group({
       'title' : [''],
       'img' : [''],
@@ -27,7 +31,7 @@ export class AddGameComponent implements OnInit {
       'platform' : [''],
       'comment' : [''],
       'note' : [''],
-      'username' : ['']
+      'username' : this.logUsername = new BehaviorSubject<{}>(this.username).getValue()
     })
   }
 

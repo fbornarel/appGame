@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
 
   private usersList = this.userService.usersValue;
   public loginUserForm : FormGroup;
+  public logUsername:void;
 
   constructor(
      private formBuilder: FormBuilder,
@@ -25,7 +26,7 @@ export class LoginComponent implements OnInit {
     this.loginUserForm = this.formBuilder.group({
       'email': ['', Validators.compose([Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')])],
       'password':['',[ Validators.minLength(10)]],    
-    });   
+    }); 
   }
 
   public loginUserFormSubmit(){ 
@@ -37,12 +38,12 @@ export class LoginComponent implements OnInit {
     {
       var email = this.usersList[i]['email'];
       var pwd = this.usersList[i]['password']['confirmPwd'];
-      var username = this.usersList[i]['username'];
-           
+                
       if( loginEmail == email && loginPwd == pwd)
       { 
-        this.router.navigate(['/games']);
-        return localStorage.setItem('username', username);                   
+        var username = this.usersList[i]['username'];
+        localStorage.setItem('username',username);
+        this.router.navigate(['/games']);                  
       }
       else
       {

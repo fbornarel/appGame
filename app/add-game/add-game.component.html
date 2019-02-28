@@ -44,7 +44,11 @@
     </select>
   </mat-form-field>
   <br>  
-      <mat-slider thumbLabel [displayWith]="addNote" tickInterval="1000" min="0" max="10" formControlName="note" required></mat-slider>
+    <mat-slider thumbLabel [displayWith]="addNote" tickInterval="1000" min="0" max="10" formControlName="note" required></mat-slider>
+  <br>
+  <mat-form-field>
+    <input matInput type="text" value="{{logUsername}}" formControlName="username">
+  </mat-form-field>
   <br>
   <button  type="submit" [disabled] = "!addGameForm.valid">Add</button>
 </form>
