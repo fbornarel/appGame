@@ -19,6 +19,7 @@ import { ListUsersComponent } from './list-users/list-users.component';
 import { DetailsGameComponent } from './details-game/details-game.component';
 import { AddGameComponent } from './add-game/add-game.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

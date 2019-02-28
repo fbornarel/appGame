@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable, of, BehaviorSubject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
+import { Router } from '@angular/router';
 
 import { User } from './User';
 import { USERSLIST } from './usersList';
@@ -12,8 +13,8 @@ export class UserService{
 
     public users = new BehaviorSubject(USERSLIST);
     public usersValue = this.users.getValue();
-
-    constructor() { }
+    
+    constructor(private router: Router) { }
 
     public getUsers(){
         return this.usersValue; 
@@ -22,5 +23,6 @@ export class UserService{
     public add(user:User){
         this.users.getValue().push(user);
     }
+    
 
 }

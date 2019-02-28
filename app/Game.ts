@@ -4,5 +4,6 @@ export class Game{
     year: number;
     platform: string;
     comment: string;
-    note: number
+    note: number;
+    username: string;
 }

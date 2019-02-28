@@ -26,7 +26,8 @@ export class AddGameComponent implements OnInit {
       'year': ['',[ Validators.maxLength(4)]],
       'platform' : [''],
       'comment' : [''],
-      'note' : ['']
+      'note' : [''],
+      'username' : ['']
     })
   }
 

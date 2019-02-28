@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { USERSLIST } from './../usersList';
 import { UserService } from '../user.service';
+
 
 @Component({
   selector: 'app-login',
@@ -12,7 +12,7 @@ import { UserService } from '../user.service';
 })
 export class LoginComponent implements OnInit {
 
-  private usersList = USERSLIST;
+  private usersList = this.userService.usersValue;
   public loginUserForm : FormGroup;
 
   constructor(
@@ -25,12 +25,10 @@ export class LoginComponent implements OnInit {
     this.loginUserForm = this.formBuilder.group({
       'email': ['', Validators.compose([Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')])],
       'password':['',[ Validators.minLength(10)]],    
-    });
-    console.log(this.userService.usersValue.length);
+    });   
   }
 
-  public loginUserFormSubmit(){
-    
+  public loginUserFormSubmit(){ 
     var loginValue = this.loginUserForm.value;
     var loginEmail = loginValue.email;
     var loginPwd = loginValue.password;
@@ -39,11 +37,12 @@ export class LoginComponent implements OnInit {
     {
       var email = this.usersList[i]['email'];
       var pwd = this.usersList[i]['password']['confirmPwd'];
-      
-      
+      var username = this.usersList[i]['username'];
+           
       if( loginEmail == email && loginPwd == pwd)
       { 
-        this.router.navigate(['/games']);       
+        this.router.navigate(['/games']);
+        return localStorage.setItem('username', username);                   
       }
       else
       {
