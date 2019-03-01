@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Component({
@@ -15,13 +15,18 @@ export class MyNavComponent {
       map(result => result.matches)
     );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private breakpointObserver: BreakpointObserver) {
+  }
 
   username:string; 
 
   ngOnInit() {
-     this.username = localStorage.getItem('username');  
+     this.username = localStorage.getItem('username');
+     
   }
+  public logout(){
+    localStorage.removeItem('username');
+  }  
 }
    
 

@@ -3,7 +3,10 @@
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="!(isHandset$ | async)">
-    <mat-toolbar></mat-toolbar>
+    <mat-toolbar>
+      {{username}}
+      <a mat-raised-button ng-show="showLogout" (click)="logout()">Logout</a>
+    </mat-toolbar>
     <mat-nav-list style="margin-top: 15%;">
       <a mat-list-item href="/games">Games</a>
       <a mat-list-item href="/register">Register</a>
@@ -23,7 +26,6 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>OVGL</span>
-      {{username}}
     </mat-toolbar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>

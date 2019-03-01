@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
       { 
         var username = this.usersList[i]['username'];
         localStorage.setItem('username',username);
-        this.router.navigate(['/games']);                  
+        this.router.navigate(['/games']);                 
       }
       else
       {
