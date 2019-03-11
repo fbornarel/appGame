@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { Router } from '@angular/router';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 import { User } from './User';
 import { USERSLIST } from './usersList';
+import { FormControl, ValidationErrors } from '@angular/forms';
 
 @Injectable({
     providedIn: 'root'
@@ -14,15 +14,17 @@ export class UserService{
     public users = new BehaviorSubject(USERSLIST);
     public usersValue = this.users.getValue();
     
-    constructor(private router: Router) { }
+    constructor() { }
 
     public getUsers(){
         return this.usersValue; 
     }
 
     public add(user:User){
-        this.users.getValue().push(user);
+        this.usersValue.push(user);
     }
     
+   
+  
 
 }

@@ -3,16 +3,18 @@
 <form id="form-register" (ngSubmit)="newUserFormSubmit()" [formGroup]="newUserForm">
     <mat-form-field>
         <input matInput placeholder="Username" formControlName="username" required>
-    </mat-form-field>
-        <div *ngIf="newUserForm.controls.username.invalid && newUserForm.controls.username.touched">Username required</div>
+    </mat-form-field> 
+    <div *ngIf="newUserForm.controls.username.invalid && newUserForm.controls.username.touched">
+        Username exist!
+      </div>
     <br>
-        <input type="file" formControlName="avatar" required>      
+    <input type="file" formControlName="avatar" required> 
+      <div *ngIf="newUserForm.controls.avatar.invalid && newUserForm.controls.avatar.touched">Avatar required</div>
     <br>
     <mat-form-field>            
         <input matInput placeholder="Email" formControlName="email" required>      
     </mat-form-field>
-        <div *ngIf="newUserForm.controls.email.invalid && newUserForm.controls.email.touched">Invalid Email</div>
-    <br>
+        <div *ngIf="newUserForm.controls.email.invalid && newUserForm.controls.email.touched">Email exist!</div>
     <div formGroupName ="password"> 
         <mat-form-field>
             <input matInput type="password" placeholder="Password" formControlName="pwd" minLength="10" required>
@@ -27,6 +29,10 @@
     <br>
     <button  type="submit" [disabled] = "!newUserForm.valid">Register</button>
 </form>
+
+
+
+
 
 
 
