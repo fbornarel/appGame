@@ -81,7 +81,7 @@ export class RegisterComponent implements OnInit {
         return observableOf({asyncInvalid:true});
       }
     }
-}
+  }
 
   public addNewUser(){
     this.userService.add(this.newUserForm.value);

@@ -1,15 +1,18 @@
 <h2 style="text-align: center;">Login</h2>
 
 <form id="loginUserForm" (ngSubmit)="loginUserFormSubmit()" [formGroup]="loginUserForm">
+  <div formGroupName ="emailPwd"> 
   <mat-form-field>
     <input matInput placeholder="Email" formControlName="email" required>
   </mat-form-field>
-  <div *ngIf="loginUserForm.controls.email.invalid && loginUserForm.controls.email.touched">Invalid Email</div>
+  <div *ngIf="loginUserForm.controls.emailPwd.controls.email.invalid && loginUserForm.controls.emailPwd.controls.email.touched">Invalid Email or Email no exist</div>
   <br>
   <mat-form-field>
     <input matInput type="password" placeholder="password" formControlName="password" minLength="10" required>
   </mat-form-field>
-    <div *ngIf="loginUserForm.controls.password.invalid && loginUserForm.controls.password.touched">No match</div>
+    <div *ngIf="loginUserForm.controls.emailPwd.controls.password.invalid && loginUserForm.controls.emailPwd.controls.password.touched">No match</div>
     <br> 
+  </div>
   <button  type="submit" [disabled] = "!loginUserForm.valid">Login</button>
 </form>
+<p>{{loginUserForm.status}}</p>
